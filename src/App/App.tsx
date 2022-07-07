@@ -1,15 +1,13 @@
-import { Button } from "../components/Button";
-import { Card } from '../components/Card';
+import imagem from '../assets/shareEatLogo.svg';
+import { Dishes } from '../pages/Dishes';
+import { NewDish } from '../pages/NewDish';
+import { Restaurants } from '../pages/Restaurants';
 
 function App() {
   return (
-    <div className="App">
-      <Card
-        title="X Bacon"
-        description="Cat ipsum dolor sit amet, caticus cuteicus bathe private parts with tongue then lick"
-        type="dish"
-        title2="R$ 20,50"
-      />
+    <div className="App" style={{paddingTop: '17px'}}>
+      <img src={imagem} alt="Logo Share Eat" style={{marginLeft: '122px'}} />
+      <Restaurants />
     </div>
   );
 }

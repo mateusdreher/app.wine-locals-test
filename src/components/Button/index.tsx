@@ -7,6 +7,6 @@ export function Button(props: ButtonType) {
 		return <ButtonAdd />
 	}
 	else {
-		return <ButtonDefault />
+		return <ButtonDefault {...props} />
 	}
 }
