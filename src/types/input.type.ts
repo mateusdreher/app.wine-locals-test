@@ -3,4 +3,6 @@ export type InputType = {
 	label: string;
 	id: string;
 	name: string;
+	value?: any;
+	onChange?: (event: any) => void;
 }

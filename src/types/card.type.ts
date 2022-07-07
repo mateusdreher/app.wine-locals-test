@@ -3,4 +3,6 @@ export type CardType = {
 	description: string;
 	title2?: string;
 	type: 'restaurant' | 'dish';
+	rating?: number;
+	_id?: string;
 }

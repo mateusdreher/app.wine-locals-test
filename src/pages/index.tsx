@@ -8,8 +8,8 @@ export function Pages() {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Restaurants />} />
-				<Route path="/dishes" element={<Dishes />} />
-				<Route path="/dishes/new" element={<NewDish />} />
+				<Route path="/dishes/:restaurant_id" element={<Dishes />} />
+				<Route path="/dishes/:restaurant_id/new" element={<NewDish />} />
 			</Routes>
 		</BrowserRouter>	
 	)

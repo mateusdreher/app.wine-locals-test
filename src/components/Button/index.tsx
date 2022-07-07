@@ -3,10 +3,16 @@ import { ButtonAdd } from "./ButtonAdd";
 import { ButtonDefault } from "./ButtonDefault";
 
 export function Button(props: ButtonType) {
+	function teste() {
+		console.log('asndjasndans')
+	}
 	if (props.type === 'add') {
-		return <ButtonAdd />
+		return <ButtonAdd {...props} />
 	}
 	else {
-		return <ButtonDefault {...props} />
+		return <ButtonDefault 
+			text={props.text} 
+			onClick={props.onClick} 
+		/>
 	}
 }

@@ -3,7 +3,7 @@ import { InputType } from "../../../types/input.type";
 export function TextArea(props: InputType) {
 	return (
 		<div className="input-field col s12">
-      <textarea id={props.id} className="materialize-textarea"></textarea>
+      <textarea id={props.id} className="materialize-textarea" value={props.value} onChange={props.onChange}></textarea>
       <label htmlFor={props.id}>{props.label}</label>
     </div>
 	)
