@@ -1,4 +1,4 @@
-import { InputType } from "../../../types/input.type";
+import { InputType } from "../../types/input.type";
 import styles from './style.module.scss';
 import NumberFormat from 'react-number-format';
 

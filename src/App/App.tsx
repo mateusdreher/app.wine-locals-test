@@ -3,7 +3,6 @@ import { ArrowBack } from '../components/ArrowBack';
 import { Pages } from '../pages';
 import styles from './styles.module.scss';
 
-
 function App() {
   return (
     <div className={"App " + styles.container}>

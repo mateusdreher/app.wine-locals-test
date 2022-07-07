@@ -1,4 +1,4 @@
-import { InputType } from "../../../types/input.type";
+import { InputType } from "../../types/input.type";
 import styles from './style.module.scss';
 
 export function TextArea(props: InputType) {

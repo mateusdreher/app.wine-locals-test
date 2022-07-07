@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
 import { RestaurantsResponseType } from '../../types/restaurants-response.type';
 import styles from './styles.module.scss';
+import { Request } from '../../utils/axios.utils';
 
 export function Restaurants() {
 	const [ restaurants, setRestaurants ] = useState<RestaurantsResponseType[]>([]);
 
 	useEffect(() => {
-		fetch('http://localhost:3000/restaurants')
-			.then(response => response.json())
-				.then(data => {
-					setRestaurants(data);
-				})
+		Request({url: '/restaurants'})
+			.then(response => {
+				setRestaurants(response.data);
+			})
 	}, [])
 
 	return (

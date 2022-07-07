@@ -6,6 +6,7 @@ import { Card } from "../../components/Card";
 import { DishesResponseType } from "../../types/dishes-response.type";
 import { RestaurantsResponseType } from "../../types/restaurants-response.type";
 import styles from './styles.module.scss';
+import { Request } from '../../utils/axios.utils';
 
 export function Dishes() {
 	const { restaurant_id } = useParams();
@@ -13,17 +14,16 @@ export function Dishes() {
 	const [ restaurantInfo, setRestaurantInfo ] = useState<RestaurantsResponseType>();
 	
 	useEffect(() => {
-		fetch(`http://localhost:3000/dishes/restaurant/${restaurant_id}`)
-			.then(response => response.json())
-				.then(data => {
-					setDishes(data);
-				});
+		Request({url: `/dishes/restaurant/${restaurant_id}`})
+			.then(response => {
+				setDishes(response.data);
+			})
 		
-		fetch(`http://localhost:3000/restaurants/${restaurant_id}`)
-			.then(response => response.json())
-				.then(data => {
-					setRestaurantInfo(data);
-				});
+		Request({url: `/restaurants/${restaurant_id}`})
+		.then(response => {
+			setRestaurantInfo(response.data);
+		})
+
 	}, [])
 
 	return (
