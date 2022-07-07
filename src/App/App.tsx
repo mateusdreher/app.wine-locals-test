@@ -4,10 +4,12 @@ import { Pages } from '../pages';
 import styles from './styles.module.scss';
 
 function App() {
+
   return (
     <div className={"App " + styles.container}>
+      
       <div className={styles.top}>
-        <ArrowBack />
+       <ArrowBack />
         <img src={imagem} alt="Logo Share Eat" />
       </div>
       <Pages />

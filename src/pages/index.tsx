@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation, Navigate } from "react-router-dom";
 import { Dishes } from "./Dishes";
 import { Login } from "./Login";
@@ -16,6 +17,7 @@ function RequireAuth({children}: {children: JSX.Element}, ...rest) {
 }
 
 export function Pages() {
+
 	return (
 		<BrowserRouter>
 			<Routes>

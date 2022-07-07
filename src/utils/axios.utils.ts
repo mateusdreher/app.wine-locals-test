@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const client = axios.create({baseURL: 'http://localhost:3000/'})
+const client = axios.create({baseURL: 'http://localhost:3333/'})
 
 export function Request({...options}) {
 	const token = localStorage.getItem('user_token');

@@ -4,7 +4,9 @@ import styles from './styles.module.scss';
 export function ArrowBack() {
 
 	function goBack() {
-		window.history.back();
+		if(window.location.pathname !== '/' && window.location.pathname !== '/login') {
+			window.history.back();
+		}
 		
 	}
 	return (
