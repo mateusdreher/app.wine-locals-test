@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { FormType } from "../../types/form.type";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../Button";
 import { Input } from "./Input";
 import { TextArea } from "./TextArea";
 
+
 export function Form() {
 	const [inputName, setInputName ] = useState<string>();
 	const [inputDescription, setInputDescription ] = useState<string>();
-	const [inputValue, setInputValue ] = useState<string>();
+	const [inputValue, setInputValue ] = useState<string>('');
 	const { restaurant_id } = useParams();
+	const navigate = useNavigate();
 
 	function createDish() {
 		if (!inputName || !inputDescription || !inputValue) {
@@ -23,9 +24,8 @@ export function Form() {
 			restaurant_id: restaurant_id,
 			name: inputName,
 			description: inputDescription,
-			value: parseInt(inputValue.toString())
+			value: onlyNumbers()
 		};
-
 		const options = {
 			method: 'POST',
 			headers,
@@ -34,8 +34,16 @@ export function Form() {
 		fetch('http://localhost:3000/dishes/new', options)
 			.then(response => response.json())
 				.then(data => {
-					console.log(data);
+					navigate(`/dishes/${restaurant_id}`)
 		})
+	}
+
+	function onlyNumbers() {
+		let splited = inputValue.split(' ')[1];
+		splited = splited.replace('.', '');
+		splited = splited.replace(',', '.')
+
+		return parseFloat(splited);
 	}
 
 	return (
@@ -59,6 +67,7 @@ export function Form() {
 					name="dishvalue"
 					value={inputValue}
 					onChange={(event) => setInputValue(event.target.value)}
+					currency={true}
 				/>
 			</div>
 				<div className="row">

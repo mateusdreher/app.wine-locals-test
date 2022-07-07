@@ -4,5 +4,6 @@ export type InputType = {
 	id: string;
 	name: string;
 	value?: any;
-	onChange?: (event: any) => void;
+	onChange: (event: any) => void;
+	currency?: boolean;
 }
