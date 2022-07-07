@@ -49,3 +49,7 @@ Após o login ser feito, será redirecionado para a tela de listagem de lugares:
    
     Após o prato ser adicionado, será redirecionado para a tela de listagem de pratos novamente.
 
+
+@To-dos:
+* Adicionar responsividade para telas maiores
+* Adicionar criação de local
