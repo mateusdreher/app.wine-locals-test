@@ -1,0 +1,18 @@
+.container {
+	.row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.title {
+		font-family: 'Poppins', sans-serif;
+		font-size: 36px;
+		color: #F3AA00;
+		margin-top: 30px;
+	}
+	.subtitle {
+		font-family: 'Nunito Sans', sans-serif;
+		font-size: 16px;
+		color: white;
+	}
+}

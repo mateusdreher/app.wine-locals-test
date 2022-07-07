@@ -1,0 +1,32 @@
+.card {
+	border-radius: 8px;
+	padding: 12px 20px;
+	margin-top: 16px;
+	.title {
+		font-size: 16px;
+		font-family: 'Poppins', sans-serif;
+		color: #fff;
+	}
+	.description {
+		font-size: 16px;
+		font-family: 'Nunito Sans', sans-serif;
+		color: #fff;
+	}
+	.stars {
+		color: #F3AA00;
+	}
+}
+.cardDish {
+	background-color: #333333;
+	width: 315px;
+	border-left: 6px solid #F3AA00;
+	.twoTitles {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+.cardRestaurant {
+	background-color: #464646;
+	width: 255px;
+}
