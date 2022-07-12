@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CardType } from "../../../types/card.type";
 import styles from '../styles.module.scss';
+import { Request } from '../../../utils/axios.utils';
 
 export function CardRestaurant(props: CardType) {
 	const [ dishes, setDishes ] = useState<number>(0);
@@ -9,11 +10,10 @@ export function CardRestaurant(props: CardType) {
 
 
 	useEffect(() => {
-		fetch(`http://localhost:3000/dishes/restaurant/${props._id}`)
-				.then(response => response.json())
-					.then(data => {
-						setDishes(data.length);
-					});
+		Request({url: `/dishes/restaurant/${props._id}`})
+			.then(response => {
+				setDishes(response.data.length);
+			})
 	}, [])
 
 	for (let i=1; i<=5; i++) {

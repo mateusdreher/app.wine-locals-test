@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAlert } from "react-alert";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
@@ -12,6 +13,7 @@ export function NewDish() {
 	const [inputValue, setInputValue ] = useState<string>('');
 	const { restaurant_id } = useParams();
 	const navigate = useNavigate();
+	const alert = useAlert();
 
 	function createDish() {
 		if (!inputName || !inputDescription || !inputValue) {
@@ -26,7 +28,11 @@ export function NewDish() {
 
 		Request({url: `/dishes/new`, method: 'post', data: body})
 			.then(response => {
+				alert.success('Prato criado com sucesso!');
 				navigate(`/dishes/${restaurant_id}`)
+			})
+			.catch(exception => {
+				alert.error('Erro ao criar o prato')
 			})
 	}
 
