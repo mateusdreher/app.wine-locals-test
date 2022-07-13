@@ -26,6 +26,12 @@ export function Pages() {
 					element={<Login />}
 				/>
 				<Route 
+					path="/" 
+					element={
+						<Navigate to="/home" />
+					} 
+				/>
+				<Route 
 					path="/home" 
 					element={
 						<RequireAuth>
