@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAlert } from "react-alert";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
@@ -12,9 +13,11 @@ export function NewDish() {
 	const [inputValue, setInputValue ] = useState<string>('');
 	const { restaurant_id } = useParams();
 	const navigate = useNavigate();
+	const alert = useAlert();
 
 	function createDish() {
 		if (!inputName || !inputDescription || !inputValue) {
+			alert.info('Verifique os campos e tente novamente!');
 			return;
 		}
 		const body = {
@@ -26,7 +29,11 @@ export function NewDish() {
 
 		Request({url: `/dishes/new`, method: 'post', data: body})
 			.then(response => {
+				alert.success('Prato criado com sucesso!');
 				navigate(`/dishes/${restaurant_id}`)
+			})
+			.catch(exception => {
+				alert.error('Erro ao criar o prato')
 			})
 	}
 
@@ -49,6 +56,7 @@ export function NewDish() {
 					name="dishName"
 					value={inputName}
 					onChange={(event) => setInputName(event.target.value)}
+					onKeyUp={(e) => e.key === 'Enter' && createDish()}
 				/>
 			</div>
 			<div className="row">
@@ -59,6 +67,7 @@ export function NewDish() {
 					name="dishvalue"
 					value={inputValue}
 					onChange={(event) => setInputValue(event.target.value)}
+					onKeyUp={(e) => e.key === 'Enter' && createDish()}
 					currency={true}
 				/>
 			</div>
@@ -69,6 +78,7 @@ export function NewDish() {
 						name="dishDescription"
 						value={inputDescription}
 						onChange={(event) => setInputDescription(event.target.value)}
+						onKeyUp={(e) => e.key === 'Enter' && createDish() }
 					/>
 					<label>*A descrição deve conter até 200 caracteres.</label>
 				</div>

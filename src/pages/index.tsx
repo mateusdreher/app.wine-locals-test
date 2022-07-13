@@ -26,7 +26,7 @@ export function Pages() {
 					element={<Login />}
 				/>
 				<Route 
-					path="/" 
+					path="/home" 
 					element={
 						<RequireAuth>
 							<Restaurants />
