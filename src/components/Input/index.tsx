@@ -33,6 +33,7 @@ export function Input(props: InputType) {
 					props.value
 				} 
 				onChange={props.onChange} 
+				onKeyUp={props.onKeyUp}
 			/>
     	<label htmlFor={props.id}>{props.label}</label>
     </div>

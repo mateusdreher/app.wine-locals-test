@@ -43,6 +43,7 @@ export function Login() {
 					label="Digite seu email"
 					onChange={(event) => {setForm({email: event.target.value, password: form.password})}}
 					value={form.email}
+					onKeyUp={(e) => e.key === 'Enter' && auth()}
 				/>
 				<Input 
 					type="password"
@@ -51,6 +52,7 @@ export function Login() {
 					label="Digite sua senha"
 					onChange={(event) => {setForm({email: form.email, password: event.target.value})}}
 					value={form.password}
+					onKeyUp={(e) => e.key === 'Enter' && auth()}
 				/>
 
 				<Button 

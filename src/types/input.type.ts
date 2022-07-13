@@ -5,5 +5,6 @@ export type InputType = {
 	name: string;
 	value?: any;
 	onChange: (event: any) => void;
+	onKeyUp?: (event: any) => void;
 	currency?: boolean;
 }

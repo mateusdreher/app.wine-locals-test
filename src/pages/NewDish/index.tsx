@@ -17,6 +17,7 @@ export function NewDish() {
 
 	function createDish() {
 		if (!inputName || !inputDescription || !inputValue) {
+			alert.info('Verifique os campos e tente novamente!');
 			return;
 		}
 		const body = {
@@ -55,6 +56,7 @@ export function NewDish() {
 					name="dishName"
 					value={inputName}
 					onChange={(event) => setInputName(event.target.value)}
+					onKeyUp={(e) => e.key === 'Enter' && createDish()}
 				/>
 			</div>
 			<div className="row">
@@ -65,6 +67,7 @@ export function NewDish() {
 					name="dishvalue"
 					value={inputValue}
 					onChange={(event) => setInputValue(event.target.value)}
+					onKeyUp={(e) => e.key === 'Enter' && createDish()}
 					currency={true}
 				/>
 			</div>
@@ -75,6 +78,7 @@ export function NewDish() {
 						name="dishDescription"
 						value={inputDescription}
 						onChange={(event) => setInputDescription(event.target.value)}
+						onKeyUp={(e) => e.key === 'Enter' && createDish() }
 					/>
 					<label>*A descrição deve conter até 200 caracteres.</label>
 				</div>
